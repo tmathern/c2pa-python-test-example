@@ -45,8 +45,32 @@ def read_c2pa_metadata(image_path):
     except c2pa.C2paError as e:
         print(f"Error reading C2PA metadata: {e}")
 
+def read_c2pa_metadata_from_stream(image_path):
+    try:
+        # Open the file in binary read mode
+        with open(image_path, 'rb') as file_stream:
+            # Create a reader instance using the file stream
+            # First parameter is the file type (jpg, png, etc.) as extension, or mimetype
+            with c2pa.Reader("jpg", stream=file_stream) as reader:
+                # Read the manifest store data as JSON
+                manifest_data = reader.json()
+
+                # Pretty print the JSON data
+                print("C2PA Manifest Data (from stream):")
+                print(manifest_data)
+
+    except c2pa.C2paError as e:
+        print(f"Error reading C2PA metadata from stream: {e}")
+    except FileNotFoundError as e:
+        print(f"Error: File not found - {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
 # Run by running python3 example.py from the command line
 # (Make sure dependencies are installed)
 if __name__ == "__main__":
     # Read metadata from included demo file C.jpg
-    read_c2pa_metadata("C.jpg")
+    # read_c2pa_metadata("C.jpg")
+
+    # Also demonstrate reading from a stream
+    read_c2pa_metadata_from_stream("C.jpg")
