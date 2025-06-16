@@ -8,6 +8,21 @@ This guide provides step-by-step instructions for installing the c2pa-python pac
 - pip (Python package installer)
 - Virtual environment venv (strongly recommended)
 
+## Installation from PyPI
+
+1. Create and activate a virtual environment (if not already done):
+
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate  # On macOS/Linux
+   ```
+
+2. Install dependencies and c2pa package:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 ## Test installation from test.pypi
 
 1. Create and activate a virtual environment (if not already done):
