@@ -1,12 +1,12 @@
-# C2PA Python Installation Guide
+# C2PA Python Example
 
-This guide provides step-by-step instructions for installing the c2pa-python package from TestPyPI.
+This guide provides step-by-step instructions for installing the c2pa-python package (initially, from TestPyPI, to test installations).
 
 ## Prerequisites
 
 - Python 3.x
 - pip (Python package installer)
-- Virtual environment (recommended)
+- Virtual environment venv (strongly recommended)
 
 ## Test installation from test.pypi
 
