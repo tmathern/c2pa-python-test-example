@@ -1,26 +1,25 @@
 """
 C2PA (Content Authenticity Initiative) Python Example
 
-This module demonstrates how to read and extract C2PA metadata from images using the c2pa-python package.
-C2PA is a standard for content provenance and authenticity that allows embedding and reading metadata
-about the origin and history of digital content.
+This module demonstrates how to read and extract C2PA data from images using the c2pa-python package.
+The example reads the C2PA data from the `C.jpg` file included in the repo.
 
 The Reader API used in the example:
 
 c2pa.Reader(image_path: str) -> Reader
-    A class for reading C2PA metadata from images (can be sued with Context Manager).
+    A class for reading C2PA from images (can be sued with Context Manager).
     Note that reading from streams is also supported.
 
     Parameters:
-        image_path (str): Path to the image file to read metadata from
+        image_path (str): Path to the image file to read from
 
     Methods used:
         json() -> dict
             Returns the manifest store data as a JSON-compatible dictionary containing
-            all C2PA metadata associated with the image.
+            all C2PA associated with the image.
 
     Raises:
-        c2pa.C2paError: If there is an error reading the C2PA metadata
+        c2pa.C2paError: If there is an error reading the C2PA data
 
 Usage:
     Run this script directly with Python 3:
@@ -31,7 +30,7 @@ Usage:
 
 import c2pa
 
-def read_c2pa_metadata(image_path):
+def read_c2pa_data(image_path):
     try:
         # Create a reader instance for the image with the file path
         with c2pa.Reader(image_path) as reader:
@@ -43,9 +42,9 @@ def read_c2pa_metadata(image_path):
             print(manifest_data)
 
     except c2pa.C2paError as e:
-        print(f"Error reading C2PA metadata: {e}")
+        print(f"Error reading C2PA data: {e}")
 
-def read_c2pa_metadata_from_stream(image_path):
+def read_c2pa_data_from_stream(image_path):
     try:
         # Open the file in binary read mode
         with open(image_path, 'rb') as file_stream:
@@ -60,7 +59,7 @@ def read_c2pa_metadata_from_stream(image_path):
                 print(manifest_data)
 
     except c2pa.C2paError as e:
-        print(f"Error reading C2PA metadata from stream: {e}")
+        print(f"Error reading C2PA data from stream: {e}")
     except FileNotFoundError as e:
         print(f"Error: File not found - {e}")
     except Exception as e:
@@ -69,8 +68,8 @@ def read_c2pa_metadata_from_stream(image_path):
 # Run by running python3 example.py from the command line
 # (Make sure dependencies are installed)
 if __name__ == "__main__":
-    # Read metadata from included demo file C.jpg
-    # read_c2pa_metadata("C.jpg")
+    # Read C2PA data from included demo file C.jpg
+    # read_c2pa_data("C.jpg")
 
     # Also demonstrate reading from a stream
-    read_c2pa_metadata_from_stream("C.jpg")
+    read_c2pa_data_from_stream("C.jpg")

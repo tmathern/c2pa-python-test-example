@@ -23,6 +23,16 @@ This guide provides step-by-step instructions for installing the c2pa-python pac
    pip install --no-deps -i https://test.pypi.org/simple/ c2pa-python==0.10.15
    ```
 
+## Run examples
+
+An example reading data for the `C.jpg` file can be run by running:
+
+```sh
+python example.py
+```
+
+(Make sure dependencies are properly installed).
+
 ## Troubleshooting
 
 ### Conflicting dependencies during install (for install from PyPiTest)
