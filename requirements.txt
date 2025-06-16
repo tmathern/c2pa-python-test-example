@@ -1,0 +1,7 @@
+c2pa-python==0.10.15
+wheel>=0.41.2
+cryptography
+requests
+setuptools
+toml
+pytest
